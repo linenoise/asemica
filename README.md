@@ -98,6 +98,40 @@ The core of Asemica is the Markov chain state transition matrix calculated from 
 
 This matrix encodes a specific pattern in the corpus: which words are followed how many times by which other words.  These transitions (i.e. word-followed-by-N-words) are counted and sorted into "meaningful" transitions (those with 16 or more exit states) and meaningless transitions.  Meaningful transitions are called such because they're able minimally to serialize a nibble of data (that is, a half byte) and are subsequently systematically traversed.  Meaningless transitions, unable to serialize a nibble, are randomly traversed.  This property allows a single input plaintext to produce multiple cryptographically equivalent ciphertexts.
 
+Caveats and Advice
+==================
+
+Asemica was written in a few days to prove a concept: that it's possible to make binary data "look like" plan text.  It hasn't been tested yet for cryptographic integrity, and is not yet intended to be used alone as a cipher.  Its best use is one paired with a more conventional cipher, to obscure the fact that a cipher is even being used in the first place:
+
+	$ echo "Meet @Joe's, 6pm" | openssl bf -pass pass:something | \
+	 > ./asemica enc -c http://www.gutenberg.org/dirs/etext98/2ws2610.txt \
+	 > -f email
+	But,
+	
+   	   As a Norman Laer Do Carve for Go.  Exeunt bearing off And Guild We'll 
+	wait upon that Fortune's state in Denmark Hor Have.  After what can inform 
+	me 'tis e'en to't Ham Aside And Guildenstern How came to Hamlet.  Horatio 
+	Than either grief and 'gins to Guildenstern!  Pol 'Fore God Ghost Ham Aside 
+	And Donations Hamlet All Denmark What.  Advancement may beware Of Hamlet 
+	Enter Queen Ham Advancing What Gertrude?  Gertrude When it Clown A Norman 
+	was't King Dead Ham Are broke.  When my bed of Hamlet's Father Queen.  
+	Bestow this Becomes The Frenchman gave him Anon he be Most eloquent music.
+
+      Vows of Hamlet's better and Guildenstern Friends Hor As TO Denmark.  
+	Hamlet Believe yet here It Go bid me?
+	
+	Hold,
+	My
+
+Saving this output to a file called 'letter.txt', or emailing it to anyone with both openssl and asemica installed, it's possible to decrypt it using the same corpus and password:
+
+	$ ./asemica dec -i letter.txt -c \
+	 > http://www.gutenberg.org/dirs/etext98/2ws2610.txt \
+	 > | openssl bf -d -pass pass:something
+	Meet @Joe's, 6pm
+
+This approach allows secure communication between parties that doesn't look to a third party like traditional cryptographic approaches such as binary or Base64 encoding.
+
 Runtime Options
 ===============
 
