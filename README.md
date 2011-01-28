@@ -40,6 +40,7 @@ This should produce something that looks like:
 > Determining whether the COST OF THE Free of THE Free copyleft license But in!  Future versions of ALL its resulting copyright also convey.  Or A FAILURE OF MERCHANTABILITY or ANY.  Implied INCLUDING ANY applicable terms are not available to an appropriate Legal?  Notices however if the PROGRAM IS addressed as IS addressed as changed so This requirement.  To Apply along with section does terminal interaction.  Through the Installation Information must suffice to USE sell offer valid.  If conditions Definitions.
 > 
 > This,
+>
 > License
 
 Decrypting this ciphertext with the same corpus file will produce the expected output:
@@ -63,7 +64,7 @@ Under the Hood
 
 Asemica is written in perl and uses curl when asked to load a remote corpus over HTTP or HTTPS.  It doesn't depend on any library not present in the usual perl distribution, so this should run on any system capable of running both perl and curl.  The author has only tested it on linux (Ubuntu 10.10) and Mac OS X (10.6.6).
 
-The Document-Key ("Corpus")
+The Document-Key ("Corpus file")
 ---------------------------
 
 Asemica works primarily by means of a corpus file: a document serving as a cryptographic key.  This corpus file can be HTML or plaintext, and can be a plain file or a remote URL that Asemica should load.  The "feel" of the output text will depend entirely upon the chosen corpus, and not all documents will function equally well as a key.
