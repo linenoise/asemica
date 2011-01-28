@@ -26,6 +26,26 @@ Which will output a ciphertext that looks similar to the one above (though proba
 
 Which should output the initial plaintext, "Meet @Joe's, 6pm".
 
+Asemica can also read and write these files, rather than reading them from the standard input and output data streams:
+
+	$ echo "Meet @Joe's, 6pm" > plain.txt
+	
+	$ ./asemica enc -c LICENSE.txt -i plain.txt -o cipher.txt
+	
+	$ cat cipher.txt 
+	applications with other PROGRAMS EVEN the IMPLIED warranty OF Others' Freedom 
+	If propagation that arrangement or ANY further restrictions within the 
+	Appropriate copyright notice like laws that apply These things To Apply and 
+	FITNESS FOR an aggregate if your copyrighted material added under version 
+	Disclaimer for at all notices displayed by procuring conveyance of Liability 
+	provided by modifying or adapt all civil liability to OPERATE WITH ABSOLUTELY 
+	NO charge under trademark law No Surrender of Liability to USE in favor of ALL 
+	versions may not available or CORRECTION Limitation of ALL 
+	
+	$ ./asemica dec -c LICENSE.txt  -i cipher.txt
+	Meet @Joe's, 6pm
+
+
 Ciphertext Formatting
 ---------------------
 
