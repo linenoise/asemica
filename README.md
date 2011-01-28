@@ -5,13 +5,13 @@ Asemica
 
 Asemica is a symmetric cipher whose key is a document and whose ciphertext looks like plaintext. For example, this plaintext:
 
-		Meet @Joe's, 6pm
+> Meet @Joe's, 6pm
 
 could become this ciphertext:
 
-		to achieve this and any applicable patent claim is based The Free program INCLUDING a computer or A Major Component in NO EVENT UNLESS and FITNESS FOR an aggregate does terminal interaction through the Program's commands or DATA OR LOSSES SUSTAINED BY court order to an appropriate Legal Notices however if the PROGRAM IS addressed as IS addressed as changed so that copyright permission to Apply These requirements of an implementation available for and OR A 
+> to achieve this and any applicable patent claim is based The Free program INCLUDING a computer or A Major Component in NO EVENT UNLESS and FITNESS FOR an aggregate does terminal interaction through the Program's commands or DATA OR LOSSES SUSTAINED BY court order to an appropriate Legal Notices however if the PROGRAM IS addressed as IS addressed as changed so that copyright permission to Apply These requirements of an implementation available for and OR A 
 
-Any single piece of plaintext should produce any number of cryptographically equivalent ciphertexts, and all of these ciphertexts will decrypt to the initial plaintext when given an identical document-key.  All information about the input file is represented in the states between most of the ciphertext words, rendering the ciphertext asemic (meaning "without meaning").
+Any single piece of plaintext should produce any number of cryptographically equivalent ciphertexts, and all of these ciphertexts will decrypt to the initial plaintext when given an identical document-key, called the *corpus file*.  All information about the input file is represented in the states between most of the ciphertext words, rendering the ciphertext asemic (meaning "without meaning").
 
 Example Use
 -----------
@@ -35,16 +35,16 @@ Certain aspects of ciphertext formatting are free-form.  You can add spacing, pu
 
 This should produce something that looks like:
 
-		In,
-
-		Determining whether the COST OF THE Free of THE Free copyleft license But in!  Future versions of ALL its resulting copyright also convey.  Or A FAILURE OF MERCHANTABILITY or ANY.  Implied INCLUDING ANY applicable terms are not available to an appropriate Legal?  Notices however if the PROGRAM IS addressed as IS addressed as changed so This requirement.  To Apply along with section does terminal interaction.  Through the Installation Information must suffice to USE sell offer valid.  If conditions Definitions.
-
-		This,
-		License
+> In,
+> 
+> Determining whether the COST OF THE Free of THE Free copyleft license But in!  Future versions of ALL its resulting copyright also convey.  Or A FAILURE OF MERCHANTABILITY or ANY.  Implied INCLUDING ANY applicable terms are not available to an appropriate Legal?  Notices however if the PROGRAM IS addressed as IS addressed as changed so This requirement.  To Apply along with section does terminal interaction.  Through the Installation Information must suffice to USE sell offer valid.  If conditions Definitions.
+> 
+> This,
+> License
 
 Decrypting this ciphertext with the same corpus file will produce the expected output:
 
-		Meet @Joe's, 6pm
+> Meet @Joe's, 6pm
 
 Remote Keys
 -----------
@@ -55,7 +55,7 @@ If you want to store your document-key on a remote server (accessible over HTTP 
 
 This specific example will encode your plaintext using Project Gutenberg's Etext of Shakespeare's *Hamlet* as a document key:
 
-		heaven Repent but 'tis dangerous lunacy Ros Good Laertes Laer And Guild I'll anoint my abridgment comes Between maids' legs Oph And Ber He closes with Project Should give exact command or Refund of Christians nor hatchment o'er which had as Hamlet ' I I Sailor He Fran Nay that Pol At Midnight of ALL
+> heaven Repent but 'tis dangerous lunacy Ros Good Laertes Laer And Guild I'll anoint my abridgment comes Between maids' legs Oph And Ber He closes with Project Should give exact command or Refund of Christians nor hatchment o'er which had as Hamlet ' I I Sailor He Fran Nay that Pol At Midnight of ALL
 
 
 Under the Hood
