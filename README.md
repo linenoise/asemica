@@ -156,7 +156,7 @@ Runtime Options
 Feedback
 ========
 
-Please direct any comments, questions, suggestions, bug reports, or feature requests to Dann Stayskal <dann@stayskal.com>.  If you're a coder, feel free to contribute.
+Please direct any comments, questions, suggestions, bug reports, or feature requests to Danne Stayskal <danne@stayskal.com>.  If you're a coder, feel free to contribute.
 
 Contributing
 ------------
@@ -184,5 +184,5 @@ License
 
  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-[1]: http://github.com/danndalf/asemica/issues
+[1]: http://github.com/linenoise/asemica/issues
 
