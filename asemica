@@ -287,7 +287,7 @@ sub generate_transitions {
 	
 	### Generate the initial transitions table
 	foreach my $index (0..scalar(@tokens)){
-		my $token = $tokens[$index];
+		my $token = $tokens[$index-1];
 		my $key = lc($token);
 		
 		$transitions->{$key}->{seen}++;
