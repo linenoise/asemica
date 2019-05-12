@@ -72,7 +72,7 @@ Remote Keys
 
 If you want to store your document-key on a remote server (accessible over HTTP or HTTPS), you can pass that URL to the -c argument in the same manner you'd pass a filename:
 
-	$ echo "Meet @Joe's, 6pm" | ./asemica enc -c http://www.gutenberg.org/dirs/etext98/2ws2610.txt
+	$ echo "Meet @Joe's, 6pm" | ./asemica enc -c https://www.gutenberg.org/cache/epub/2265/pg2265.txt
 
 This specific example will encode your plaintext using Project Gutenberg's Etext of Shakespeare's *Hamlet* as a document key:
 
@@ -104,7 +104,7 @@ Caveats and Advice
 Asemica was written in a few days to prove a concept: that it's possible to make binary data "look like" plan text.  It hasn't been tested yet for cryptographic integrity, and is not yet intended to be used alone as a cipher.  Its best use is one paired with a more conventional cipher, to obscure the fact that a cipher is even being used in the first place:
 
 	$ echo "Meet @Joe's, 6pm" | openssl bf -pass pass:something | \
-	 > ./asemica enc -c http://www.gutenberg.org/dirs/etext98/2ws2610.txt \
+	 > ./asemica enc -c https://www.gutenberg.org/cache/epub/2265/pg2265.txt \
 	 > -f email
 	But,
 	
@@ -126,7 +126,7 @@ Asemica was written in a few days to prove a concept: that it's possible to make
 Saving this output to a file called 'letter.txt', or emailing it to anyone with both openssl and asemica installed, it's possible to decrypt it using the same corpus and password:
 
 	$ ./asemica dec -i letter.txt -c \
-	 > http://www.gutenberg.org/dirs/etext98/2ws2610.txt \
+	 > https://www.gutenberg.org/cache/epub/2265/pg2265.txt \
 	 > | openssl bf -d -pass pass:something
 	Meet @Joe's, 6pm
 
