@@ -27,6 +27,7 @@ use Getopt::Long;
 
 my $corpus_file = '';
 my $input_file = '';
+my $pin_num = '';
 my $output_file = '';
 my $verbose = 0;
 my $format = '';
@@ -35,6 +36,7 @@ my $get_help = !scalar(@ARGV);
 GetOptions (
 	"c|corpus=s" => \$corpus_file,
 	"i|input=s"  => \$input_file,
+	"p|pin" => \$pin_num,
 	"o|output=s" => \$output_file,
 	"v|verbose+" => \$verbose,
 	"f|format=s" => \$format,
@@ -47,6 +49,7 @@ if ($verbose) {
 	print STDERR "Asemica version $VERSION running\n";
 	print STDERR "   Corpus file: $corpus_file\n" if $corpus_file;
 	print STDERR "   Input file: $input_file\n" if $input_file;
+	print STDERR "   Pin number: $pin_num\n" if $pin_num;
 	print STDERR "   Output file: $output_file\n" if $output_file;
 	print STDERR "   Operation: $operation\n" if $operation;
 	print STDERR "   Force: $force\n" if $force;
@@ -67,6 +70,7 @@ $usage
 OPTIONS:
    -c/--corpus:  specify corpus filename or URL
    -i/--input:   specify input filename (defaults to STDIN)
+   -p/--input2:  add custom pin number (optional - leave null for none)
    -o/--output:  specify output filename (defaults to STDOUT)
    -f/--format:  specify output format (defaults to none)
    --force:      forces runtime on an insufficiently complex corpus
@@ -278,7 +282,6 @@ sub tokenize_corpus {
 #                'doors' => 2,               ### Cached count of doors
 #                'token' => 'Atlantic'       ### Original form of the token
 #              },
-#    ...
 #    }
 ###
 sub generate_transitions {
@@ -357,12 +360,12 @@ sub verify_exits {
 	}
 }
 
-
 ###
 # encode
 # Encodes an input file using the transition matrix calculated from the corpus
 # Takes:
 #   - $input, a scalar containing the input to be encoded
+#   - $pin (optional), the user's pin number code
 #   - $transitions, the transition matrix calculated from the corpus
 #   - $tokens, an array reference of the token sequence from the key corpus
 # Returns:
@@ -370,7 +373,7 @@ sub verify_exits {
 ###
 sub encode {
 	my ($input, $transitions, $tokens) = @_;
-
+	my $ruleset = ((), (), (), (), (), (), (), (), (), ())
 	my $bits = unpack("b*", $input);
 	my $nibbles;
 	while (my $nibble = substr($bits,0,4,'')){
@@ -414,7 +417,6 @@ sub encode {
 
 	return $encoded_text;
 }
-
 
 ###
 # decode
