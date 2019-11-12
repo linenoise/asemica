@@ -174,6 +174,7 @@ Thanks
 Special thanks to:
 
 * Suzy Choate, for suggesting case insensitivity in the output text.
+* Kassidy Jones, for providing her short story to be used as a corpus.
 
 License
 =======
