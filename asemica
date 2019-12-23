@@ -31,7 +31,6 @@ my $output_file = '';
 my $verbose = 0;
 my $format = '';
 my $force = 0;
-my $get_help = !scalar(@ARGV);
 GetOptions (
 	"c|corpus=s" => \$corpus_file,
 	"i|input=s"  => \$input_file,
@@ -39,7 +38,6 @@ GetOptions (
 	"v|verbose+" => \$verbose,
 	"f|format=s" => \$format,
 	"force+"     => \$force,
-	"h|help+"    => \$get_help,
 );
 my $operation = shift @ARGV;
 
@@ -56,34 +54,6 @@ if ($verbose) {
 
 my $usage = "Usage: $0 (enc|dec) -c <corpus_file> [-i <input_file>] ".
 			"[-o <output_file>] [-f <format>] [--force] [--help]\n";
-
-###
-# If all they want is help (or they ran this with no args), give them help
-###
-if ($get_help) {
-	print STDERR <<__END_HELP__
-Asemica: an asemic Markov-chained cipher, v. $VERSION
-$usage
-OPTIONS:
-   -c/--corpus:  specify corpus filename or URL
-   -i/--input:   specify input filename (defaults to STDIN)
-   -o/--output:  specify output filename (defaults to STDOUT)
-   -f/--format:  specify output format (defaults to none)
-   --force:      forces runtime on an insufficiently complex corpus
-   --help:       displays this message
-   -v/--verbost: increments verbosity setting (used for debugging)
-AVAILABLE FORMATS:
-   none:         doesn't format output; returns only word list
-   email:        formats output to look like an informal email
-   poem:         if you want your output to look like poetry
-EXAMPLES
-   echo "message" | $0 enc -c corpus.txt -o asemic.txt
-   $0 dec -c corpus.txt -i asemic.txt
-__END_HELP__
-;
-exit 1;
-}
-
 
 ###
 # Make sure we have necessary and sufficient inputs (command line or STDIN)
