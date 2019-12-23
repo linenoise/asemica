@@ -6,17 +6,29 @@ How to Use
 -
 Select what mode you would like to use, and choose if you would like the privacy feature.
 This guards you against anyone who could be watching your activity.
-
 Then continue to enter your message.
 If you selected the encryption mode, choose to either make a "key" for your message or to make one yourself.
 There is the option "Generate Key" to download your key if you make it longer than ten digits.
 The more characters (or the higher the number) you enter in, the more complex the encryption will be.
 If you set your mode to "decrypt", put in the key you have received.
-
 There is an option to upload files.
 It will take only files that have the title of "message.txt" or "key.txt" inside of the `javacrypt-master` folder.
 For this feature to work, you may have to disable "Local File Restriction(s)" on your browser.
 
+Options
+-
+`-c/--corpus: specify corpus filename or URL`
+`-i/--input: specify input filename (defaults to STDIN)`
+`-o/--output: specify output filename (defaults to STDOUT)`
+`-f/--format: specify output format (defaults to none)`
+`--force: forces runtime on an insufficiently complex corpus`
+`-v/--verbost: increments verbosity setting (used for debugging)`
+
+Available Formats
+-
+`none: doesn't format output; returns only word list`
+`email: formats output to look like an informal email`
+`poem: if you want your output to look like poetry`
 
 Additional Information
 -
