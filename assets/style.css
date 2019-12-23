@@ -1,0 +1,180 @@
+body {
+   text-align: center;
+   background-color: #262626;
+   color: white;
+   font-family: sans-serif;
+   width: 100%;
+   overflow: auto;
+   position: sticky;
+   word-wrap: break-word;
+   -webkit-animation-name: load; /* Safari 4.0 - 8.0 */
+   -webkit-animation-duration: 3.5s; /* Safari 4.0 - 8.0 */
+   animation-name: load;
+   animation-duration: 3.5s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes load {
+  from {background-color: black; opacity:0;}
+  to {background-color: #262626; opacity:1;}
+}
+
+@keyframes load {
+  from {background-color: black; opacity:0;}
+  to {background-color: #262626; opacity:1;}
+}
+
+div {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 10%;
+}
+
+#Page5 {
+  top: 10%;
+  left: 10%;
+  color: black;
+  background-color: white;
+  border: solid thick gold;
+  font-weight: lighter;
+  font-size: 1.5vw;
+  padding: 2%;
+  width: 75%;
+  height: 75%;
+}
+
+p {
+  background-color: #1a1a1a;
+  border-color: GoldenRod;
+  border-style: solid;
+  width: 10vw;
+  font-size: 2vh;
+  position: relative;
+  left: 43.35%;
+  padding: 0.75%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+h1 {
+  font-size: 150%;
+}
+
+h2 {
+  background-color: #1a1a1a;
+  border-color: GoldenRod;
+  border-style: solid;
+  font-size: 4vh;
+  width: 25vw;
+  height: 10%;
+  padding: 3.5%;
+  position: relative;
+  left: 33.75%;
+}
+
+span.span {
+  background-color: #1a1a1a;
+  border-color: GoldenRod;
+  border-style: solid;
+  font-size: 3vh;
+  width: 25vw;
+  height: 10%;
+  padding: 3.5%;
+  position: relative;
+  left: 33.75%;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  color: white;
+  background-color: #1a1a1a;
+  border-color: GoldenRod;
+  border-style: solid;
+  border-width: thick;
+  transition-duration: 0.4s;
+  padding: 2%;
+  margin: 5%;
+  font-size: 2.5vw;
+  height: 300px;
+  width: 500px;
+  font-size: 2.5vw;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+  border-color: gold;
+  font-style: italic;
+}
+
+label {
+  margin: 1.5%;
+}
+
+/* Code by w3schools.com (https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_switch) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 96px;
+  height: 54.4px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 41.6px;
+  width: 41.6px;
+  left: 6.4px;
+  bottom: 6.4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: Gold;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(41.8px);
+  -ms-transform: translateX(41.8px);
+  transform: translateX(41.8px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

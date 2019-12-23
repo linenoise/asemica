@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- javacrypt (https://github.com/ForgivenNin/javacrypt) is licensed under the GNU General Public License v3.0. Copyright (C) 2007 Free Software Foundation, Inc. (https://fsf.org/) -->
+<html>
+  <head>
+    <title>javacrypt</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <script src="functionality/show.js"></script>
+    <script src="cipher/clean_input.js"></script>
+    <script src="cipher/corpus_select.js"></script>
+    <script src="cipher/corpora.js"></script>
+    <script src="cipher/ruleset.js"></script>
+  </head>
+  <body>
+    <div id="Page1">
+      <button onclick="return show('Page2', 'Page1')">
+        <h1>
+          <b>javacrypt <noscript>requires JavaScript to be enabled to work!</noscript></b>
+        </h1>
+      </button>
+    </div>
+    <div id="Page2" style="display: none;">
+      <button id="d" value="ON" onclick="toggle(this);">Mode: Encrypt</button>
+      <button onclick="return show('Page3', 'Page2');">Continue</button>
+      <p>
+        <br />
+        <b>Private</b>
+        <br />
+        <br />
+        <label class="switch">
+          <input id="lever" type="checkbox"></input>
+          <span class="slider round"></span>
+        </label>
+        </br>
+      </p>
+    </div>
+    <div id="Page3" style="display: none;">
+      <h2>
+        <u>Text</u>
+        <br />
+        <br />
+        <textarea id="words" rows="15" cols="50"></textarea>
+        <br />
+      </h2>
+      <button onclick="show('Page4','Page3')">
+        Continue
+      </button>
+    </div>
+    <br />
+    <div id="Page4" style="display: none;">
+      <h2>
+        <u>Enter PIN Number</u>
+        <br />
+        <br />
+        <textarea id="digits" rows="15" cols="50"></textarea>
+        <br />
+      </h2>
+      <button onclick="clean_input()">Create</button>
+    </div>
+    <div id="Page5" style="display: none;"></div>
+  </body>
+</html>
