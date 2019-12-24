@@ -14,8 +14,8 @@
         op = 'dec'
       }
       var val = {
-        operation: op + "\n",
-        format: fmt + "\n",
+        operation: op,
+        format: fmt,
         txt: document.getElementById('words').value,
       }
       var data = JSON.stringify(val)
