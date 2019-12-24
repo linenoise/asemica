@@ -26,5 +26,5 @@ file2 = open("stats.txt", "w")
 file2.write(ob["operation"] + "\n" + ob["format"])
 file2.close()
 
-subprocess.Popen(["perl", "asemica.pl"], stdout=subprocess.PIPE)    
+subprocess.Popen(["perl", "asemica.pl"])    
 # Perl will delete files from here.
