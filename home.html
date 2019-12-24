@@ -23,38 +23,8 @@
         break
       }
     }
-
-    function run(){
-
-      var fmt
-      if (document.getElementById('essay').checked === true) {
-        fmt = 'essay'
-      } else if (document.getElementById('texile').checked === true) {
-        fmt = 'texile'
-      } else if (document.getElementById('poem').checked === true) {
-        fmt = 'poem'
-      } else if (document.getElementById('email').checked === true) {
-        fmt = 'email'
-      } else {
-        fmt = 'none'
-      }
-
-      var op
-      if (document.getElementById('d').value === "ON") {
-        op = 'enc'
-      } else {
-        op = 'dec'
-      }
-
-      var val = {
-        operation: op,
-        format: fmt,
-        txt: document.getElementById('words').value,
-      }
-      var data = JSON.stringify(val)
-
-    }
     </script>
+    <script src="processor.js" async></script>
   </head>
   <body>
     <div id="Page1">
@@ -73,8 +43,6 @@
         <br />
         <br />
         None<input id="none" name="type" type="radio"></input>
-        Essay<input id="essay" name="type" type="radio"></input>
-        Texile<input id="texile" name="type" type="radio"></input>
         Poem<input id="poem" name="type" type="radio"></input>
         Email<input id="email" name="type" type="radio"></input>
         </br>
