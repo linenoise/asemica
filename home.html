@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>javacrypt</title>
-    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <title>asemicrypt</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script async>
     function show(shown, hidden) {
       document.getElementById(shown).style.display = 'block';
@@ -50,7 +50,6 @@
         operation: op,
         format: fmt,
         txt: document.getElementById('words').value,
-        pn: document.getElementById('digits').value
       }
       var data = JSON.stringify(val)
 
@@ -104,7 +103,7 @@
         <input type="number" id="digits" rows="15" cols="50"></textarea>
         <br />
       </h2>
-      <button onclick="run()">Create</button>
+      <button onclick="tts()">Create</button>
     </div>
   </body>
 </html>

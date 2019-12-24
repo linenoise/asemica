@@ -4,7 +4,7 @@ use strict;
 ###
 # Asemica -- An asemic Markov-chained cipher
 # Copyright (c) 2011 by Danne Stayskal <danne@stayskal.com>
-# Modified by ForgivenNin @ GitHub
+# Modified by ForgivenNin @ GitHub.com (2019-2020)
 ###
 
 ###
@@ -22,31 +22,36 @@ use strict;
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ###
 
+
 my $corpus_file = 'corpus.txt';
 my $input_file = 'input.txt';
-my $output_file = 'output.txt';
 my $format = '';
 my $operation = ''
 
+
 ###
-# Debug/Error Log Function
+# Debug/Error Log
 ###
 
 sub debug {
 	my ($err) = @_;
+	open("E", ">>", "errorlog.txt");
+	E localtime() + "\n" + $err + "\n";
+	close("E");
 }
+
 
 ###
 # Make sure we have necessary and sufficient inputs (command line or STDIN)
 ###
 
 unless ($operation) {
-	print "No operation (encode or decode) specified.\n";
+	debug("No operation (encode or decode) specified.\n");
 	exit 1;
 }
 
 unless ($operation eq 'enc' || $operation eq 'dec') {
-	print "Invalid operation specified: $operation\n";
+	debug("Invalid operation specified: $operation\n");
 	exit 1;
 }
 
@@ -54,7 +59,7 @@ my $input = '';
 unless ($input_file) {
 	$input = join('',<STDIN>);
 } else {
-	open('INPUT', '<', $input_file) || die "Can't read $input_file";
+	open('INPUT', '<', $input_file) || debug("Can't read $input_file");
 	$input = join('',<INPUT>);
 	close('INPUT');
 }
@@ -66,17 +71,17 @@ unless ($input_file) {
 
 my $corpus = '';
 unless ($corpus_file) {
-	print STDERR "No corpus specified.  Can't operate without a corpus.\n";
+	debug("No corpus specified.  Can't operate without a corpus.\n");
 	exit 1;
 }
 if (-f $corpus_file) {
 	### It's a flat file.  Load and move on.
-	open('CORPUS','<', $corpus_file) || die "Can't read $corpus_file";
+	open('CORPUS','<', $corpus_file) || debug("Can't read $corpus_file");
 	$corpus = join('',<CORPUS>);
 	close('CORPUS');
 
 } else {
-	print STDERR "Couldn't read corpus at $corpus_file\nExiting.\n";
+	debug("Couldn't read corpus at $corpus_file\nExiting.\n");
 	exit 1;
 }
 
@@ -111,12 +116,10 @@ if ($operation eq 'enc') {
 ###
 # Output the results
 ###
-if ($output_file) {
-	open('OUTPUT', '>', $output_file) || die "Can't write to $output_file.\n";
-	print OUTPUT $output_text;
+if ("output.txt") {
+	open('OUTPUT', '>>', "output.txt") || debug("Can't write to 'output.txt'.\n");
+  OUTPUT $output_text;
 	close('OUTPUT');
-} else {
-	print $output_text;
 }
 
 
@@ -261,10 +264,6 @@ sub verify_exits {
 			push @meaningful, $key;
 		}
 	}
-	if ($verbose) {
-		print STDERR "$count meaningful transitions (".
-					 join(', ',@meaningful).")\n\n";
-	}
 	if ($count >=7) {
 		return 1;
 	} else {
@@ -316,10 +315,10 @@ sub encode {
 
 		unless($token){
 			use Data::Dumper;
-			print "DEBUG:\ntoken = $token\n".
+			debug("DEBUG:\ntoken = $token\n".
 				  "Transitions:".Dumper($transitions->{lc($token)}).
 				  "\nlast_token = $last_token\n".
-				  "Transitions:".Dumper($transitions->{lc($last_token)});
+				  "Transitions:".Dumper($transitions->{lc($last_token)});)
 			exit 1;
 		}
 
@@ -481,41 +480,7 @@ sub format_text {
 	if ($formats->{$format}) {
 		return $formats->{$format}->(split(' ',$input_text));
 	} else {
-		print STDERR "Unsupported format: $format\nExiting\n";
+		debug("Unsupported format: $format\nExiting\n");
 		exit 1;
 	}
-}
-
-
-###
-# dec2bin
-# Converts a decimal numeric expression to binary
-#
-# Takes:
-#   - $decimal, a decimal expression of a number (e.g. '54')
-# Returns:
-#   - $binary, a binary expression of the same number (e.g. '110110')
-# Note:
-#   Sourced from Perl Cookbook (Christiansen & Torkington 1998), sec. 2.4
-###
-sub dec2bin {
-	my $str = unpack("B32", pack("N", shift));
-	$str =~ s/^0+(?=\d)//;
-	return $str;
-}
-
-
-###
-# bin2dec
-# Converts a binary numeric expression to decimal
-#
-# Takes:
-#   - $binary, a binary expression of the same number (e.g. '110110')
-# Returns:
-#   - $decimal, a decimal expression of a number (e.g. '54')
-# Note:
-#   Sourced from Perl Cookbook (Christiansen & Torkington 1998), sec. 2.4
-###
-sub bin2dec {
-	return unpack("N", pack("B32", substr("0" x 32 . shift, -32)));
 }
