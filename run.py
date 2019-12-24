@@ -18,13 +18,9 @@ app.run(debug=True)
 # Write input for asemica and launch it
 ob = json.loads(data)
 
-file1 = open("input.txt", "w")
-file1.write(ob["txt"])
-file1.close()
-
-file2 = open("stats.txt", "w")
-file2.write(ob["operation"] + "\n" + ob["format"])
-file2.close()
+file = open("input.txt", "w")
+file.write(ob["operation"] + "\n" + ob["format"] + "\n" + ob["txt"])
+file.close()
 
 subprocess.Popen(["perl", "asemica.pl"])    
 # Perl will delete files from here.
