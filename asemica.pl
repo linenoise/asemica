@@ -23,10 +23,18 @@ use strict;
 ###
 
 
+###
+# Retrieve data
+###
+
+open('INPT_FLE','<', "input.txt")
+@lines = (1, 2, 3);
+@tr = <INPT_FLE>
+my $operation = tr[$lines[0]];
+my $format = tr[$lines[1]];
+my $input_file = tr[$lines[2]];
+
 my $corpus_file = 'corpus.txt';
-my $input_file = 'input.txt';
-my $format = '';
-my $operation = ''
 
 
 ###
@@ -114,13 +122,14 @@ if ($operation eq 'enc') {
 
 
 ###
-# Output the results
+# Output the results and delete files
 ###
 if ("output.txt") {
 	open('OUTPUT', '>>', "output.txt") || debug("Can't write to 'output.txt'.\n");
   OUTPUT $output_text;
 	close('OUTPUT');
 }
+unlink "input.txt"
 
 
 ###
@@ -390,23 +399,12 @@ sub decode {
 #   - $format, a scalar specifying the desired format
 # Returns:
 #   - $output_text, a scalar containing the formatted text
-# Supported formats: none, essay, poem, scripture, email
 ###
 sub format_text {
 	my ($input_text, $format) = @_;
 
 	my $formats = {
 		'none' => sub { return join(' ',@_); },
-
-		'essay' => sub {
-			my @words = @_;
-			return join(' ',@words);
-		},
-
-		'textile' => sub {
-			my @words = @_;
-			return join(' ',@words);
-		},
 
 		###
 		# Poem format
