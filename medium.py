@@ -3,6 +3,7 @@ ensurepip.bootstrap(upgrade=True)
 pip install -U Flask
 from flask import Flask, render_template
 import json
+import subprocess
 
 
 # Connect to HTML script(s).
@@ -17,16 +18,13 @@ app.run(debug=True)
 # Write input for asemica and launch it
 ob = json.loads(data)
 
-file1 = open("perlpath.txt", "r")
-p = file1.read()
+file1 = open("input.txt", "w")
+file1.write(ob["txt"])
 file1.close()
 
-file2 = open("input.txt", "w")
-file2.write(ob["txt"])
+file2 = open("stats.txt", "w")
+file2.write(ob["operation"] + "\n" + ob["format"])
 file2.close()
 
-file3 = open("stats.txt", "w")
-file3.write(ob["operation"] + "\n" + ob["format"])
-file3.close()
-
-# Perl can/will delete files from here as needed.
+subprocess.Popen(["perl", "asemica.pl"], stdout=subprocess.PIPE)    
+# Perl will delete files from here.
