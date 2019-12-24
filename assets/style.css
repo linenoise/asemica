@@ -31,19 +31,6 @@ div {
   top: 10%;
 }
 
-#Page5 {
-  top: 10%;
-  left: 10%;
-  color: black;
-  background-color: white;
-  border: solid thick gold;
-  font-weight: lighter;
-  font-size: 1.5vw;
-  padding: 2%;
-  width: 75%;
-  height: 75%;
-}
-
 p {
   background-color: #1a1a1a;
   border-color: GoldenRod;
@@ -62,6 +49,10 @@ h1 {
   font-size: 150%;
 }
 
+#pin {
+  font-size: 3vh;
+}
+
 h2 {
   background-color: #1a1a1a;
   border-color: GoldenRod;
@@ -72,6 +63,11 @@ h2 {
   padding: 3.5%;
   position: relative;
   left: 33.75%;
+}
+
+input {
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 span.span {
@@ -91,6 +87,11 @@ textarea {
   box-sizing: border-box;
 }
 
+#intro {
+  height: 300px;
+  width: 500px;
+}
+
 button {
   color: white;
   background-color: #1a1a1a;
@@ -101,8 +102,8 @@ button {
   padding: 2%;
   margin: 5%;
   font-size: 2.5vw;
-  height: 300px;
-  width: 500px;
+  height: 100px;
+  width: 200px;
   font-size: 2.5vw;
   font-weight: bold;
   cursor: pointer;

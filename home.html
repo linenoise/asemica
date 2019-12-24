@@ -1,37 +1,87 @@
 <!DOCTYPE html>
-<!-- javacrypt (https://github.com/ForgivenNin/javacrypt) is licensed under the GNU General Public License v3.0. Copyright (C) 2007 Free Software Foundation, Inc. (https://fsf.org/) -->
 <html>
   <head>
     <title>javacrypt</title>
     <link rel="stylesheet" type="text/css" href="assets/style.css">
-    <script src="functionality/show.js"></script>
-    <script src="cipher/clean_input.js"></script>
-    <script src="cipher/corpus_select.js"></script>
-    <script src="cipher/corpora.js"></script>
-    <script src="cipher/ruleset.js"></script>
+    <script async>
+    function show(shown, hidden) {
+      document.getElementById(shown).style.display = 'block';
+      document.getElementById(hidden).style.display = 'none';
+      return false;
+    }
+
+    // Copyright (c) 2019 by AmanDev (https://codepen.io/amonfking/pen/bJGWMa)
+    function toggle(button){
+      switch(button.value){
+        case "ON":
+          button.value = "OFF"
+          button.innerText = "Decrypt"
+        break
+        case "OFF":
+          button.value = "ON"
+          button.innerText = "Encrypt"
+        break
+      }
+    }
+
+    function run(){
+
+      var fmt
+      if (document.getElementById('essay').checked === true) {
+        fmt = 'essay'
+      } else if (document.getElementById('texile').checked === true) {
+        fmt = 'texile'
+      } else if (document.getElementById('poem').checked === true) {
+        fmt = 'poem'
+      } else if (document.getElementById('email').checked === true) {
+        fmt = 'email'
+      } else {
+        fmt = 'none'
+      }
+
+      var op
+      if (document.getElementById('d').value === "ON") {
+        op = 'enc'
+      } else {
+        op = 'dec'
+      }
+
+      var val = {
+        operation: op,
+        format: fmt,
+        txt: document.getElementById('words').value,
+        pn: document.getElementById('digits').value
+      }
+      var data = JSON.stringify(val)
+
+    }
+    </script>
   </head>
   <body>
     <div id="Page1">
-      <button onclick="return show('Page2', 'Page1')">
+      <button id="intro" onclick="return show('Page2', 'Page1')">
         <h1>
           <b>javacrypt <noscript>requires JavaScript to be enabled to work!</noscript></b>
         </h1>
       </button>
     </div>
     <div id="Page2" style="display: none;">
-      <button id="d" value="ON" onclick="toggle(this);">Mode: Encrypt</button>
-      <button onclick="return show('Page3', 'Page2');">Continue</button>
-      <p>
+      <button id="d" value="ON" onclick="toggle(this);">Encrypt</button>
+      <br />
+      <p id="format">
         <br />
-        <b>Private</b>
+        <b>Format</b>
         <br />
         <br />
-        <label class="switch">
-          <input id="lever" type="checkbox"></input>
-          <span class="slider round"></span>
-        </label>
+        None<input id="none" name="type" type="radio"></input>
+        Essay<input id="essay" name="type" type="radio"></input>
+        Texile<input id="texile" name="type" type="radio"></input>
+        Poem<input id="poem" name="type" type="radio"></input>
+        Email<input id="email" name="type" type="radio"></input>
         </br>
       </p>
+      <br />
+      <button onclick="return show('Page3', 'Page2');">Continue</button>
     </div>
     <div id="Page3" style="display: none;">
       <h2>
@@ -47,15 +97,14 @@
     </div>
     <br />
     <div id="Page4" style="display: none;">
-      <h2>
-        <u>Enter PIN Number</u>
+      <h2 id="pin">
+        <u>Enter PIN</u>
         <br />
         <br />
-        <textarea id="digits" rows="15" cols="50"></textarea>
+        <input type="number" id="digits" rows="15" cols="50"></textarea>
         <br />
       </h2>
-      <button onclick="clean_input()">Create</button>
+      <button onclick="run()">Create</button>
     </div>
-    <div id="Page5" style="display: none;"></div>
   </body>
 </html>
