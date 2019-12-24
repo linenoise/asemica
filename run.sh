@@ -2,7 +2,7 @@
 chmod +x run.sh
 
 # Get directory name of `asemica.pl`
-PT=$(ln -s asemica.pl)
+PT=$(dirname ~/asemica.pl)
 echo $PT >perlpath.txt
 
 os=${OSTYPE//[0-9.-]*/}
