@@ -3,9 +3,7 @@ An easy way to encrypt and decrypt text offline.
 
 How to Use
 -
-Before you get started, you may need the most recently updated versions of Python, Perl, and Bash (programming languages) and your browser.
-You will also need to execute `install.sh` just once for `run.py` to use a file path.
-Now, the first thing to do is click on `run.py`, and it will open up `home.html`.
+To start, you need to execute `run.sh`, and it will open up `home.html`.
 From there, you will be guided in choosing the format of your message, what your message is, and a PIN to protect it.
 Write your input only through this method.
 Then the scripts shall do their thing, and you will see that your messages are in `output.txt`.
