@@ -1,6 +1,3 @@
-import ensurepip
-ensurepip.bootstrap(upgrade=True)
-pip install -U Flask
 from flask import Flask, render_template
 import json
 import subprocess
@@ -8,11 +5,11 @@ import subprocess
 
 # Connect to HTML script(s).
 app=Flask(__name__)
-@app.route(‘/’)
+@app.route("/")
 def home():
-return render_template(“home.html”)
-if __name__ ==’__main__’:
-app.run(debug=True)
+    return render_template('home.html')
+    if __name__ == "__main__":
+        app.run(debug=True)
 
 
 # Write input for asemica and launch it
