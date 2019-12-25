@@ -3,16 +3,17 @@ An easy way to encrypt and decrypt text offline.
 
 How to Use
 -
-To start, you need to execute `run.py`, and it will open up `home.html`.
-From there, you will be guided in choosing the format of your message, what your message is, and a PIN to protect it.
-Then the scripts shall do their thing, and you will see that your messages are in `output.txt`.
+Launch `install.sh` to download necessary packages.
+Execute `run.py` to start the program.
+You will then be guided in choosing whether to encrypt or decrypt, the format of your message, and a PIN to protect it.
+Messages will go into `output.txt`.
 
 Additional Information
 -
-If there are any problems that occur in the process, find what went wrong in `errorlog.txt`.
+If something went wrong, see `errorlog.txt`.
 You can change swap `corpus.txt` with another file of your liking, but it has to have the same title.
 If needed, disconnect Wi-Fi and have pre-made `.txt` files to paste your code, preventing keylogging.
-The stylesheet, `style.css`, is not required, and it can be removed if desired.
+The stylesheet, `style.css`, is not required, and can be removed.
 
 ForgivenNin/asemicrypt is a fork of linenoise/asemica.
 Licensed under the GNU GENERAL PUBLIC LICENSE Version 3 (which should have come with the software downloaded).
