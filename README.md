@@ -9,7 +9,7 @@ Asemica is a symmetric cipher whose key is a document and whose ciphertext looks
 
 could become this ciphertext:
 
-> to achieve this and any applicable patent claim is based The Free program INCLUDING a computer or A Major Component in NO EVENT UNLESS and FITNESS FOR an aggregate does terminal interaction through the Program's commands or DATA OR LOSSES SUSTAINED BY court order to an appropriate Legal Notices however if the PROGRAM IS addressed as IS addressed as changed so that copyright permission to Apply These requirements of an implementation available for and OR A 
+> to achieve this and any applicable patent claim is based The Free program INCLUDING a computer or A Major Component in NO EVENT UNLESS and FITNESS FOR an aggregate does terminal interaction through the Program's commands or DATA OR LOSSES SUSTAINED BY court order to an appropriate Legal Notices however if the PROGRAM IS addressed as IS addressed as changed so that copyright permission to Apply These requirements of an implementation available for and OR A
 
 Any single piece of plaintext should produce any number of cryptographically equivalent ciphertexts, and all of these ciphertexts will decrypt to the initial plaintext when given an identical document-key, called the *corpus file*.  All information about the input file is represented in the states between most of the ciphertext words, rendering the ciphertext asemic (meaning "without meaning").
 
@@ -22,26 +22,26 @@ To produce this example, we can use the GNU GPL version 3 as a corpus file. This
 
 Which will output a ciphertext that looks similar to the one above (though probably not identical).  To decrypt a ciphertext, you can either save the ciphertext to a file (with the -o parameter) or pipe it back into another Asemica process:
 
-	$ echo "Meet @Joe's, 6pm" | ./asemica enc -c LICENSE.txt | ./asemica dec -c LICENSE.txt 
+	$ echo "Meet @Joe's, 6pm" | ./asemica enc -c LICENSE.txt | ./asemica dec -c LICENSE.txt
 
 Which should output the initial plaintext, "Meet @Joe's, 6pm".
 
 Asemica can also read and write these files, rather than reading them from the standard input and output data streams:
 
 	$ echo "Meet @Joe's, 6pm" > plain.txt
-	
+
 	$ ./asemica enc -c LICENSE.txt -i plain.txt -o cipher.txt
-	
-	$ cat cipher.txt 
-	applications with other PROGRAMS EVEN the IMPLIED warranty OF Others' Freedom 
-	If propagation that arrangement or ANY further restrictions within the 
-	Appropriate copyright notice like laws that apply These things To Apply and 
-	FITNESS FOR an aggregate if your copyrighted material added under version 
-	Disclaimer for at all notices displayed by procuring conveyance of Liability 
-	provided by modifying or adapt all civil liability to OPERATE WITH ABSOLUTELY 
-	NO charge under trademark law No Surrender of Liability to USE in favor of ALL 
-	versions may not available or CORRECTION Limitation of ALL 
-	
+
+	$ cat cipher.txt
+	applications with other PROGRAMS EVEN the IMPLIED warranty OF Others' Freedom
+	If propagation that arrangement or ANY further restrictions within the
+	Appropriate copyright notice like laws that apply These things To Apply and
+	FITNESS FOR an aggregate if your copyrighted material added under version
+	Disclaimer for at all notices displayed by procuring conveyance of Liability
+	provided by modifying or adapt all civil liability to OPERATE WITH ABSOLUTELY
+	NO charge under trademark law No Surrender of Liability to USE in favor of ALL
+	versions may not available or CORRECTION Limitation of ALL
+
 	$ ./asemica dec -c LICENSE.txt  -i cipher.txt
 	Meet @Joe's, 6pm
 
@@ -56,9 +56,9 @@ Certain aspects of ciphertext formatting are free-form.  You can add spacing, pu
 This should produce something that looks like:
 
 > In,
-> 
+>
 > Determining whether the COST OF THE Free of THE Free copyleft license But in!  Future versions of ALL its resulting copyright also convey.  Or A FAILURE OF MERCHANTABILITY or ANY.  Implied INCLUDING ANY applicable terms are not available to an appropriate Legal?  Notices however if the PROGRAM IS addressed as IS addressed as changed so This requirement.  To Apply along with section does terminal interaction.  Through the Installation Information must suffice to USE sell offer valid.  If conditions Definitions.
-> 
+>
 > This,
 >
 > License
@@ -107,19 +107,19 @@ Asemica was written in a few days to prove a concept: that it's possible to make
 	 > ./asemica enc -c https://www.gutenberg.org/cache/epub/2265/pg2265.txt \
 	 > -f email
 	But,
-	
-   	   As a Norman Laer Do Carve for Go.  Exeunt bearing off And Guild We'll 
-	wait upon that Fortune's state in Denmark Hor Have.  After what can inform 
-	me 'tis e'en to't Ham Aside And Guildenstern How came to Hamlet.  Horatio 
-	Than either grief and 'gins to Guildenstern!  Pol 'Fore God Ghost Ham Aside 
-	And Donations Hamlet All Denmark What.  Advancement may beware Of Hamlet 
-	Enter Queen Ham Advancing What Gertrude?  Gertrude When it Clown A Norman 
+
+   	   As a Norman Laer Do Carve for Go.  Exeunt bearing off And Guild We'll
+	wait upon that Fortune's state in Denmark Hor Have.  After what can inform
+	me 'tis e'en to't Ham Aside And Guildenstern How came to Hamlet.  Horatio
+	Than either grief and 'gins to Guildenstern!  Pol 'Fore God Ghost Ham Aside
+	And Donations Hamlet All Denmark What.  Advancement may beware Of Hamlet
+	Enter Queen Ham Advancing What Gertrude?  Gertrude When it Clown A Norman
 	was't King Dead Ham Are broke.  When my bed of Hamlet's Father Queen.  
 	Bestow this Becomes The Frenchman gave him Anon he be Most eloquent music.
 
       Vows of Hamlet's better and Guildenstern Friends Hor As TO Denmark.  
 	Hamlet Believe yet here It Go bid me?
-	
+
 	Hold,
 	My
 
@@ -152,7 +152,7 @@ Runtime Options
 	EXAMPLES
 	   echo "message" | ./asemica enc -c corpus.txt -o asemic.txt
 	   ./asemica dec -c corpus.txt -i asemic.txt
-	
+
 Feedback
 ========
 
@@ -174,6 +174,7 @@ Thanks
 Special thanks to:
 
 * Suzy Choate, for suggesting case insensitivity in the output text.
+* Kassidy Jones (2017), for supplying "Damaged", the default corpus file.
 
 License
 =======
@@ -185,4 +186,3 @@ License
  You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 [1]: http://github.com/linenoise/asemica/issues
-
