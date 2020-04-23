@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ASEMICA COMMAND ASSEMBLER</title>
+    <!-- STYLING CURRENTLY UNCOMPATIBLE WITH MOBILE DEVICES -->
+    <style>
+    body {
+       background-color: #262626;
+       color: white;
+       font-family: sans-serif;
+       text-align: center;
+       position: sticky;
+    }
+
+    .box {
+      background-color: #262626;
+      border-color: rgb(2, 152, 195);
+      border-style: solid;
+      height: 100%;
+      padding: 2%;
+      margin: 5%;
+    }
+
+    table {
+      align: center;
+      width: 100%;
+      background-color: #1a1a1a;
+      border-color: rgb(2, 152, 195);
+      border-style: solid;
+      font-size: 150%;
+      margin-top: 5%;
+    }
+    </style>
+    <script>
+    document.addEventListener("click", function () {
+      var command = "asemica"
+
+      if (document.getElementById('enc').checked) {
+        command += " enc"
+      } else if (document.getElementById('dec').checked) {
+        command += " dec"
+      }
+
+      if (document.getElementById('corpus').value) {
+        command += " -c " + document.getElementById('corpus').value
+      }
+
+      if (document.getElementById('input').value) {
+        command += " -i " + document.getElementById('input').value
+      }
+
+      if (document.getElementById('output').value) {
+        command += " -o " + document.getElementById('output').value
+      }
+
+      if (document.getElementById('none').checked) {
+        command += " -f none"
+      } else if (document.getElementById('poem').checked) {
+        command += " -f poem"
+      } else if (document.getElementById('email').checked) {
+        command += " -f email"
+      }
+
+      document.getElementById('result').innerText = command
+    })
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="5">
+          <br />
+          <br />
+          <h1>ASEMICA COMMAND ASSEMBLER<noscript> requires JavaScript to be enabled to work!</noscript></h1>
+          <br />
+        </td>
+      </tr>
+      <tr>
+        <td class="box">
+          <h3>Mode</h3>
+          Encrypt <input id="enc" name="mode" type="radio"></input>
+          <br />
+          <br />
+          Decrypt <input id="dec" name="mode" type="radio"></input>
+          <br />
+          <br />
+        </td>
+        <td class="box">
+          <h3>Corpus URL / File Name</h3>
+          <input id="corpus" type="text" onload="this.value=''"></input>
+          <br />
+          <br />
+        </td>
+        <td class="box">
+          <h3>Input File Name</h3>
+          <input id="input" type="text" onload="this.value=''"></input>
+          <br />
+          <br />
+        </td>
+        <td class="box">
+          <h3>Output File Name</h3>
+          <input id="output" type="text" onload="this.value=''"></input>
+          <br />
+          <br />
+        </td>
+        <td class="box">
+          <h3>Format</h3>
+          None <input id="none" name="type" type="radio"></input>
+          <br />
+          <br />
+          Poem <input id="poem" name="type" type="radio"></input>
+          <br />
+          <br />
+          Email <input id="email" name="type" type="radio"></input>
+          <br />
+          <br />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <br />
+          <br />
+          <h2>Result</h2>
+          <div class="box" id="result"></div>
+          <br />
+          <br />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
