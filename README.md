@@ -152,7 +152,9 @@ Runtime Options
 	EXAMPLES
 	   echo "message" | ./asemica enc -c corpus.txt -o asemic.txt
 	   ./asemica dec -c corpus.txt -i asemic.txt
-	
+
+If you are still having trouble with understanding the runtime options, use `assembler.html`, and it will walk you through the process accordingly.
+	  
 Feedback
 ========
 
