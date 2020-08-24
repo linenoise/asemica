@@ -71,7 +71,7 @@ OPTIONS:
    -f/--format:  specify output format (defaults to none)
    --force:      forces runtime on an insufficiently complex corpus
    --help:       displays this message
-   -v/--verbost: increments verbosity setting (used for debugging)
+   -v/--verbose: increments verbosity setting (used for debugging)
 AVAILABLE FORMATS:
    none:         doesn't format output; returns only word list
    email:        formats output to look like an informal email
